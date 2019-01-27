@@ -16,7 +16,7 @@ namespace DiceRoller
         public List<int> GetResults(int numOfDice, int diceChoice)
         {
             List<int> rollResults = new List<int>();
-           for(int i=0; i<numOfDice; i++)
+            for (int i = 0; i < numOfDice; i++)
             {
                 var randomNumber = GetRandomNumber(diceChoice);
                 rollResults.Add(randomNumber);
@@ -27,7 +27,7 @@ namespace DiceRoller
         public int GetRandomNumber(int i)
         {
             Random random = new Random();
-            int result;
+            int result = 0;
             switch (i)
             {
                 case 1:
