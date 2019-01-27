@@ -11,7 +11,6 @@ namespace DiceRoller
                 return true;
             else
                 return false;
-
         }
 
         public List<int> GetResults(int numOfDice, int diceChoice)
