@@ -35,10 +35,9 @@ namespace DiceRoller
                 Console.WriteLine("Would you like to roll again? y/n");
                 var cont = Console.ReadLine();
                 isRunning = diceRepo.ReturnBoolean(cont);
-
             }
             Console.WriteLine("Have a nice day!");
-            Thread.Sleep(45);
+            Thread.Sleep(1045);
         }
     }
 }
