@@ -48,5 +48,21 @@ namespace DiceRoller.Tests
 
             Assert.AreEqual(expected, actual);
         }
+
+        [TestMethod]
+        public void DiceRollerRepository_GetRandomNumber_ShouldReturnNumberInCorrectRange()
+        {
+            int input = 1;
+            var random = _diceRepo.GetRandomNumber(input);
+            bool actual;
+
+            if (random <= 4 && random >= 1)
+                actual = true;
+            else
+                actual = false;
+            var expected = true;
+
+            Assert.AreEqual(actual, expected);
+        }
     }
 }
