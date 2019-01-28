@@ -158,5 +158,23 @@ namespace DiceRoller.Tests
 
             Assert.AreEqual(actual, expected);
         }
+
+        [DataTestMethod]
+        [DataRow(1, "1d4")]
+        [DataRow(2, "1d6")]
+        [DataRow(3, "1d8")]
+        [DataRow(4, "1d10")]
+        [DataRow(5, "1d12")]
+        [DataRow(6, "1d20")]
+        [DataRow(7, "1d100")]
+        public void DiceRollerRepository_GetDiceType_ShouldReturnCorrectString(int diceChoice, string correctDiceType)
+        {
+            var actual = _diceRepo.GetDiceType(diceChoice);
+            var expected = correctDiceType;
+
+            Assert.AreEqual(expected, actual);
+
+        }
+
     }
 }
