@@ -10,7 +10,8 @@ namespace DiceRoller
     {
         static void Main(string[] args)
         {
-            ProgamUI program = new ProgamUI();
+            var console = new RealConsole();
+            ProgamUI program = new ProgamUI(console);
             program.Run();
 
         }
