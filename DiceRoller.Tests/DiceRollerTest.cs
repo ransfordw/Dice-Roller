@@ -6,10 +6,11 @@ namespace DiceRoller.Tests
     [TestClass]
     public class DiceRollerTest
     {
-        DiceRollerRepository _diceRepo = new DiceRollerRepository();
+        DiceRollerRepository _diceRepo;
         [TestInitialize]
         public void Arrange()
         {
+            _diceRepo = new DiceRollerRepository();
         }
 
         [TestMethod]
@@ -23,18 +24,15 @@ namespace DiceRoller.Tests
             Assert.AreEqual(expected, actual);
         }
 
-        [TestMethod]
-        public void DiceRollerRepository_ReturnBoolean_ShouldReturnFalse()
+        [DataTestMethod]
+        [DataRow("y")]
+        [DataRow("Y")]
+        public void DiceRollerRepository_ReturnBoolean_ShouldReturnFalse(string response)
         {
-            string response ="y";
-            string responseTwo = "Y";
-
             var actual = _diceRepo.ReturnBoolean(response);
-            var actualTwo = _diceRepo.ReturnBoolean(responseTwo);
             var expected = true;
 
             Assert.AreEqual(expected, actual);
-            Assert.AreEqual(expected, actualTwo);
         }
 
         [TestMethod]
