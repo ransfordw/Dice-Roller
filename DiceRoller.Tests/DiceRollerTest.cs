@@ -48,13 +48,109 @@ namespace DiceRoller.Tests
         }
 
         [TestMethod]
-        public void DiceRollerRepository_GetRandomNumber_ShouldReturnNumberInCorrectRange()
+        public void DiceRollerRepository_GetRandomNumber_ShouldReturnNumberInCorrectRange1d4()
         {
             int input = 1;
             var random = _diceRepo.GetRandomNumber(input);
             bool actual;
 
             if (random <= 4 && random >= 1)
+                actual = true;
+            else
+                actual = false;
+            var expected = true;
+
+            Assert.AreEqual(actual, expected);
+        }
+
+        [TestMethod]
+        public void DiceRollerRepository_GetRandomNumber_ShouldReturnNumberInCorrectRange1d6()
+        {
+            int input = 2;
+            var random = _diceRepo.GetRandomNumber(input);
+            bool actual;
+
+            if (random <= 6 && random >= 1)
+                actual = true;
+            else
+                actual = false;
+            var expected = true;
+
+            Assert.AreEqual(actual, expected);
+        }
+
+        [TestMethod]
+        public void DiceRollerRepository_GetRandomNumber_ShouldReturnNumberInCorrectRange1d8()
+        {
+            int input = 3;
+            var random = _diceRepo.GetRandomNumber(input);
+            bool actual;
+
+            if (random <= 8 && random >= 1)
+                actual = true;
+            else
+                actual = false;
+            var expected = true;
+
+            Assert.AreEqual(actual, expected);
+        }
+
+        [TestMethod]
+        public void DiceRollerRepository_GetRandomNumber_ShouldReturnNumberInCorrectRange1d10()
+        {
+            int input = 4;
+            var random = _diceRepo.GetRandomNumber(input);
+            bool actual;
+
+            if (random <= 10 && random >= 1)
+                actual = true;
+            else
+                actual = false;
+            var expected = true;
+
+            Assert.AreEqual(actual, expected);
+        }
+
+        [TestMethod]
+        public void DiceRollerRepository_GetRandomNumber_ShouldReturnNumberInCorrectRange1d12()
+        {
+            int input = 5;
+            var random = _diceRepo.GetRandomNumber(input);
+            bool actual;
+
+            if (random <= 12 && random >= 1)
+                actual = true;
+            else
+                actual = false;
+            var expected = true;
+
+            Assert.AreEqual(actual, expected);
+        }
+
+        [TestMethod]
+        public void DiceRollerRepository_GetRandomNumber_ShouldReturnNumberInCorrectRange1d20()
+        {
+            int input = 6;
+            var random = _diceRepo.GetRandomNumber(input);
+            bool actual;
+
+            if (random <= 20 && random >= 1)
+                actual = true;
+            else
+                actual = false;
+            var expected = true;
+
+            Assert.AreEqual(actual, expected);
+        }
+
+        [TestMethod]
+        public void DiceRollerRepository_GetRandomNumber_ShouldReturnNumberInCorrectRange1d100()
+        {
+            int input = 7;
+            var random = _diceRepo.GetRandomNumber(input);
+            bool actual;
+
+            if (random <= 100 && random >= 1)
                 actual = true;
             else
                 actual = false;
