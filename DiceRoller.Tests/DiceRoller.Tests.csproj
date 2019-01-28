@@ -50,7 +50,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DiceRollerRepositoryTests.cs" />
+    <Compile Include="MockConsole.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ConsoleMockingTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

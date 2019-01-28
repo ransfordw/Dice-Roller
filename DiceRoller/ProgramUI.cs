@@ -3,12 +3,12 @@ using System.Threading;
 
 namespace DiceRoller
 {
-    public class ProgamUI
+    public class ProgramUI
     {
         readonly IConsole _console;
         readonly DiceRollerRepository _diceRepo;
 
-        public ProgamUI(IConsole console)
+        public ProgramUI(IConsole console)
         {
             _console = console;
             _diceRepo = new DiceRollerRepository();
