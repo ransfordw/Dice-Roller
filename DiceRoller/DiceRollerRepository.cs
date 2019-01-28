@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace DiceRoller
 {
-    public class DiceRollerRepository
+    public class DiceRollerRepository : IDiceRoller
     {
         public bool ReturnBoolean(string multipleResponse)
         {
