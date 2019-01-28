@@ -5,6 +5,8 @@ namespace DiceRoller
 {
     public class DiceRollerRepository : IDiceRoller
     {
+        Random random = new Random();
+
         public bool ReturnBoolean(string multipleResponse)
         {
             if (multipleResponse.Contains("y") || multipleResponse.Contains("Y"))
@@ -26,7 +28,7 @@ namespace DiceRoller
 
         public int GetRandomNumber(int i)
         {
-            Random random = new Random();
+            //Random random = new Random();
             int result = 0;
             switch (i)
             {
@@ -56,6 +58,40 @@ namespace DiceRoller
                     break;
             }
             return result;
+        }
+
+        public string GetDiceType(int i)
+        {
+            string diceType;
+
+            switch (i)
+            {
+                case 1:
+                    diceType = "1d4";
+                    break;
+                case 2:
+                    diceType = "1d6";
+                    break;
+                case 3:
+                    diceType = "1d8";
+                    break;
+                case 4:
+                    diceType = "1d10";
+                    break;
+                case 5:
+                    diceType = "1d12";
+                    break;
+                case 6:
+                    diceType = "1d20";
+                    break;
+                case 7:
+                    diceType = "1d100";
+                    break;
+                default:
+                    diceType = "1d3";
+                    break;
+            }
+            return diceType;
         }
     }
 }
