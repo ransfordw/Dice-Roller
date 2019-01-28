@@ -4,7 +4,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 namespace DiceRoller.Tests
 {
     [TestClass]
-    public class DiceRollerTest
+    public class DiceRollerRepositoryTests
     {
         DiceRollerRepository _diceRepo;
         [TestInitialize]
