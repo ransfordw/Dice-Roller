@@ -14,7 +14,7 @@ namespace DiceRoller.Tests
         }
 
         [TestMethod]
-        public void DiceRollerRepository_ReturnBoolean_ShouldReturnTrue()
+        public void DiceRollerRepository_ReturnBoolean_ShouldReturnFalse()
         {
             string response = "";
 
@@ -27,7 +27,7 @@ namespace DiceRoller.Tests
         [DataTestMethod]
         [DataRow("y")]
         [DataRow("Y")]
-        public void DiceRollerRepository_ReturnBoolean_ShouldReturnFalse(string response)
+        public void DiceRollerRepository_ReturnBoolean_ShouldReturnTrue(string response)
         {
             var actual = _diceRepo.ReturnBoolean(response);
             var expected = true;
@@ -173,8 +173,6 @@ namespace DiceRoller.Tests
             var expected = correctDiceType;
 
             Assert.AreEqual(expected, actual);
-
         }
-
     }
 }
