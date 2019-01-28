@@ -5,38 +5,46 @@ namespace DiceRoller
 {
     public class ProgamUI
     {
+        readonly IConsole _console;
+        readonly DiceRollerRepository _diceRepo;
+
+        public ProgamUI(IConsole console)
+        {
+            _console = console;
+            _diceRepo = new DiceRollerRepository();
+        }
+
         public void Run()
         {
-            DiceRollerRepository diceRepo = new DiceRollerRepository();
             bool isRunning = true;
             while (isRunning)
             {
                 int numOfDice = 1;
-                Console.WriteLine($"Which dice would you like to roll?\n" +
+                _console.WriteLine($"Which dice would you like to roll?\n" +
                     $"1. 1d4\t2. 1d6\t3. 1d8\t4. 1d10\t5. 1d12\t6. 1d20\t7. 1d100");
-                var diceChoice = int.Parse(Console.ReadLine());
+                var diceChoice = int.Parse(_console.ReadLine());
 
-                Console.WriteLine($"Would you like to roll more than one? y/n");
-                var multipleResponse = Console.ReadLine();
-                var isMultiple = diceRepo.ReturnBoolean(multipleResponse);
+                _console.WriteLine($"Would you like to roll more than one? y/n");
+                var multipleResponse = _console.ReadLine();
+                var isMultiple = _diceRepo.ReturnBoolean(multipleResponse);
                 if (isMultiple)
                 {
-                    Console.WriteLine("How many dice do you want to roll?");
-                    numOfDice = int.Parse(Console.ReadLine());
+                    _console.WriteLine("How many dice do you want to roll?");
+                    numOfDice = int.Parse(_console.ReadLine());
                 }
-                var results = diceRepo.GetResults(numOfDice, diceChoice);
-                Console.Clear();
-                Console.WriteLine("Your Results:");
+                var results = _diceRepo.GetResults(numOfDice, diceChoice);
+                _console.Clear();
+                _console.WriteLine("Your Results:");
                 foreach (var i in results)
                 {
-                    Console.WriteLine(i);
+                    _console.WriteLine(i);
                 }
                 Thread.Sleep(25);
-                Console.WriteLine("Would you like to roll again? y/n");
-                var cont = Console.ReadLine();
-                isRunning = diceRepo.ReturnBoolean(cont);
+                _console.WriteLine("Would you like to roll again? y/n");
+                var cont = _console.ReadLine();
+                isRunning = _diceRepo.ReturnBoolean(cont);
             }
-            Console.WriteLine("Have a nice day!");
+            _console.WriteLine("Have a nice day!");
             Thread.Sleep(1045);
         }
     }
