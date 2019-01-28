@@ -29,8 +29,6 @@ namespace DiceRoller.Tests
         [DataTestMethod]
         [DataRow("1","y","2","n","How many")]
         [DataRow("1","Y","2","n","How many")]
-        //[DataRow("1","","n","How many")]
-        [TestMethod]
         public void DiceRollerRepository_MultipleDiceChoice_ShouldSelectForMoreDice(string inputOne, string inputTwo, string inputThree, string inputFour, string assert)
         {
             //-- Arrange
@@ -49,7 +47,6 @@ namespace DiceRoller.Tests
         [DataTestMethod]
         [DataRow("1","","n","How many")]
         [DataRow("1","ewrqnicrpo349","n","How many")]
-        [TestMethod]
         public void DiceRollerRepository_MultipleDiceChoice_ShouldNotSelectForMoreDice(string inputOne, string inputTwo, string inputThree, string assert)
         {
             //-- Arrange
@@ -65,10 +62,22 @@ namespace DiceRoller.Tests
             Assert.IsFalse(console.Output.Contains(assert));
         }
 
-        [TestMethod]
-        public void DiceRollerRepository_RollDiceAgain_ShouldNotContainExitMessage()
+        [DataTestMethod]
+        [DataRow("1", "", "n", "Have a nice day!")]
+        [DataRow("1", "ewrqnicrpo349", "n", "Have a nice day!")]
+        public void DiceRollerRepository_RollDiceAgain_ShouldContainExitMessage(string inputOne, string inputTwo, string inputThree, string assert)
         {
-         
+            //-- Arrange
+            var commandList = new List<string> { inputOne, inputTwo, inputThree };
+            MockConsole console = new MockConsole(commandList);
+            var program = new ProgramUI(console);
+
+            //-- Act
+            program.Run();
+            Console.WriteLine(console.Output);
+
+            //-- Assert
+            Assert.IsTrue(console.Output.Contains(assert));
         }
     }
 }
