@@ -10,13 +10,14 @@ namespace DiceRoller
 
         public bool ReturnBoolean(string multipleResponse)
         {
-            if (multipleResponse.Contains("y") || multipleResponse.Contains("Y"))
+            multipleResponse.ToLower();
+            if (multipleResponse.Contains("y"))
                 return true;
             else
                 return false;
         }
 
-        public List<int> GetResults(int numOfDice, int diceChoice)
+        public List<int> GetResultsList(int numOfDice, int diceChoice)
         {
             List<int> rollResults = new List<int>();
             for (int i = 0; i < numOfDice; i++)
@@ -25,6 +26,15 @@ namespace DiceRoller
                 rollResults.Add(randomNumber);
             }
             return rollResults;
+        }
+
+        public int GetSumOfResults(List<int> results, int modifier)
+        {
+            int total = 0;
+            foreach (int result in results)
+                total += result;
+            total += modifier;
+            return total;
         }
 
         public int GetRandomNumber(int i)

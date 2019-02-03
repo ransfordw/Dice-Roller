@@ -9,7 +9,7 @@ namespace DiceRoller
     public interface IDiceRoller
     {
         bool ReturnBoolean(string s);
-        List<int> GetResults(int number, int choice);
+        List<int> GetResultsList(int number, int choice);
         int GetRandomNumber(int i);
     }
 }

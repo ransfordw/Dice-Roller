@@ -41,7 +41,7 @@ namespace DiceRoller.Tests
             int num = 2;
             int choice = 4;
 
-            var actual = _diceRepo.GetResults(num,choice).Count;
+            var actual = _diceRepo.GetResultsList(num,choice).Count;
             var expected = 2;
 
             Assert.AreEqual(expected, actual);
