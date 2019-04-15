@@ -6,7 +6,7 @@ namespace DiceRoller
     public class DiceRollerRepository : IDiceRoller
     {
         //Moved my instantiation of Random outside of GetRandomNumber to generate "random" numbers off the same seed time to avoid replicating results. See https://docs.microsoft.com/en-us/dotnet/api/system.random?view=netframework-4.7.2 for more info
-        Random random = new Random();
+        readonly Random random = new Random();
 
         public bool ReturnBoolean(string multipleResponse)
         {
@@ -39,9 +39,9 @@ namespace DiceRoller
 
         public int GetRandomNumber(int i)
         {
+            int result;
             //If you define Random here instead of at the top of the repository and choose multiple dice, the results will be the same for each roll.
             //Random random = new Random();
-            int result = 0;
             switch (i)
             {
                 case 1:
