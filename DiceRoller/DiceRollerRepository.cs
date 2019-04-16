@@ -8,10 +8,9 @@ namespace DiceRoller
         //Moved my instantiation of Random outside of GetRandomNumber to generate "random" numbers off the same seed time to avoid replicating results. See https://docs.microsoft.com/en-us/dotnet/api/system.random?view=netframework-4.7.2 for more info
         readonly Random random = new Random();
 
-        public bool ReturnBoolean(string multipleResponse)
+        public bool ReturnBoolean(string boolResponse)
         {
-            multipleResponse.ToLower();
-            if (multipleResponse.Contains("y"))
+            if (boolResponse.ToLower().Contains("y"))
                 return true;
             else
                 return false;
