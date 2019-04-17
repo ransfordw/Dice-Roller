@@ -63,12 +63,14 @@ namespace DiceRoller.Tests
         }
 
         [DataTestMethod]
-        [DataRow("1", "", "n", "Have a nice day!")]
-        [DataRow("1", "ewrqnicrpo349", "n", "Have a nice day!")]
-        public void DiceRollerRepository_RollDiceAgain_ShouldContainExitMessage(string inputOne, string inputTwo, string inputThree, string assert)
+        [DataRow("2", "1", "n", "n", "total", "n", "Have a nice day!")]
+
+        //[DataRow("1", "", "n", "Have a nice day!")]
+        //[DataRow("1", "ewrqnicrpo349", "n", "Have a nice day!")]
+        public void DiceRollerRepository_RollDiceAgain_ShouldContainExitMessage(string input, string input2, string input3, string input4,string input5, string input6, string assert)
         {
             //-- Arrange
-            var commandList = new List<string> { inputOne, inputTwo, inputThree };
+            var commandList = new List<string> { input, input2, input3, input4,input5,input6 };
             MockConsole console = new MockConsole(commandList);
             var program = new ProgramUI(console);
 
