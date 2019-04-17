@@ -45,12 +45,12 @@ namespace DiceRoller.Tests
         }
 
         [DataTestMethod]
-        [DataRow("1", "", "n", "How many")]
-        [DataRow("1", "ewrqnicrpo349", "n", "How many")]
-        public void DiceRollerRepository_MultipleDiceChoice_ShouldNotSelectForMoreDice(string inputOne, string inputTwo, string inputThree, string assert)
+        [DataRow("2", "1", "n", "n", "total", "n", "How many")]
+        [DataRow("2", "1", "n", "ewrqnicrpo349", "total", "n", "How many")]
+        public void DiceRollerRepository_MultipleDiceChoice_ShouldNotSelectForMoreDice(string input, string input2, string input3, string input4, string input5, string input6, string assert)
         {
             //-- Arrange
-            var commandList = new List<string> { inputOne, inputTwo, inputThree };
+            var commandList = new List<string> { input, input2, input3,input4,input5,input6 };
             MockConsole console = new MockConsole(commandList);
             var program = new ProgramUI(console);
 
