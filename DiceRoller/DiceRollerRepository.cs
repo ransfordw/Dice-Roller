@@ -10,7 +10,7 @@ namespace DiceRoller
 
         public bool ReturnBoolean(string boolResponse)
         {
-            if (boolResponse.ToLower().Contains("y"))
+            if (boolResponse.ToLower().Contains("y") | !boolResponse.ToLower().Contains("n"))
                 return true;
             else
                 return false;
